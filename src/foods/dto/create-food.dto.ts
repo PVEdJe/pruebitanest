@@ -14,8 +14,8 @@ export class CreateFoodDto {
     @IsString()
     img!: string;
     @IsNotEmpty()
-    @IsString()
-    category!: string;
+    @IsNumber()
+    category!: number;
     @IsNotEmpty()
     @IsBoolean()
     isAvailable?: boolean;

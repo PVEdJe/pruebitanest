@@ -1,5 +1,5 @@
-import { IsBoolean, IsNotEmpty, IsString } from "class-validator";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Food } from "src/foods/entities/food.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Category {
@@ -11,4 +11,8 @@ export class Category {
     description!: string;
     @Column({ default: true })
     isAvailable!: boolean;
+
+    @OneToMany(()=> Food, (food) =>
+    food.category)
+    foods! : Food[]
 }
